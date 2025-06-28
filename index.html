@@ -406,7 +406,7 @@
             <div class="subject-icon" style="background: linear-gradient(135deg, #667eea, #764ba2);">📐</div>
             <div class="subject-details">
               <h3>Mathematics</h3>
-              <p class="subject-duration">1 Hour Session</p>
+              <p class="subject-duration">5 Minute Session</p>
             </div>
           </div>
           <div class="checkbox-custom" id="maths-checkbox" onclick="toggleComplete('maths')"></div>
@@ -428,7 +428,7 @@
             <div class="subject-icon" style="background: linear-gradient(135deg, #f093fb, #f5576c);">⚛️</div>
             <div class="subject-details">
               <h3>Physics</h3>
-              <p class="subject-duration">1 Hour Session</p>
+              <p class="subject-duration">5 Minute Session</p>
             </div>
           </div>
           <div class="checkbox-custom" id="physics-checkbox" onclick="toggleComplete('physics')"></div>
@@ -450,7 +450,7 @@
             <div class="subject-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">💻</div>
             <div class="subject-details">
               <h3>Computer Science</h3>
-              <p class="subject-duration">1 Hour Session</p>
+              <p class="subject-duration">5 Minute Session</p>
             </div>
           </div>
           <div class="checkbox-custom" id="computer-checkbox" onclick="toggleComplete('computer')"></div>
@@ -472,7 +472,7 @@
             <div class="subject-icon" style="background: linear-gradient(135deg, #fa709a, #fee140);">🗣️</div>
             <div class="subject-details">
               <h3>Communication Skills</h3>
-              <p class="subject-duration">1 Hour Session</p>
+              <p class="subject-duration">5 Minute Session</p>
             </div>
           </div>
           <div class="checkbox-custom" id="communication-checkbox" onclick="toggleComplete('communication')"></div>
@@ -540,7 +540,7 @@
       if (endTime && !isPaused && !isCompleted) {
         resumeTimer(subject);
       } else if (isPaused) {
-        const remainingTime = parseInt(getStorageItem(`${subject}-remaining`)) || 3600;
+        const remainingTime = parseInt(getStorageItem(`${subject}-remaining`)) || 300;
         updateTimerDisplay(subject, remainingTime);
       }
     }
@@ -553,7 +553,7 @@
         stopBreakTimer();
       }
 
-      const duration = 3600; // 1 hour in seconds
+      const duration = 300; // 5 minutes in seconds
       const startTime = Date.now();
       const endTime = startTime + (duration * 1000);
       
@@ -625,8 +625,8 @@
       removeStorageItem(`${subject}-paused`);
       removeStorageItem(`${subject}-remaining`);
       
-      updateTimerDisplay(subject, 3600);
-      updateProgress(subject, 3600, 3600);
+      updateTimerDisplay(subject, 300);
+      updateProgress(subject, 300, 300);
       
       const card = document.getElementById(`${subject}-card`);
       card.classList.remove('active');
@@ -653,7 +653,7 @@
       removeStorageItem(`${subject}-remaining`);
       
       updateTimerDisplay(subject, 0);
-      updateProgress(subject, 0, 3600);
+      updateProgress(subject, 0, 300);
       updateStats();
       
       playSound('complete');
@@ -705,7 +705,7 @@
       document.getElementById('completedCount').textContent = completed;
       
       // Calculate total study time (simplified)
-      const totalMinutes = completed * 60;
+      const totalMinutes = completed * 5;
       const hours = Math.floor(totalMinutes / 60);
       const minutes = totalMinutes % 60;
       document.getElementById('totalStudyTime').textContent = `${hours}h ${minutes}m`;
